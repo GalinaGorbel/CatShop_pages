@@ -34,7 +34,7 @@ class CardSort {
                     <span></span>
                 </div>
             </div>
-                <input class="input input_main button button_blue button_card" value="Купить"></input>
+                <input class="input input_main button button_blue button_card" type="button" value="Купить"></input>
             `
             this.wrap.appendChild(card);
         }
