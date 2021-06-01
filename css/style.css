@@ -728,7 +728,7 @@ html {
 }
 
 .scrollup {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 5%;
   display: none;
