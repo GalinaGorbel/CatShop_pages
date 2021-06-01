@@ -96,10 +96,10 @@ class CardSort {
 
                 if (!this.obj[index].like) {
                     this.obj[index].like = true;
-                    e.target.src = "../img/main/Vector_white.png";
+                    e.target.src = "./img/main/Vector_white.png";
                 } else {
 
-                    e.target.src = "../img/main/Vector.png";
+                    e.target.src = "./img/main/Vector.png";
                     this.obj[index].like = false;
                 }
             })
