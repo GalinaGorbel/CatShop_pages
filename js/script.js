@@ -59,7 +59,7 @@ class CardSort {
             cardPrice.textContent = `${this.numberWithSpaces(price)} руб.`;
 
             this.addHeart(cards[i], like);
-            
+
             if (discount) {
                 this.addDiscount(discount, cards[i]);
             }
@@ -109,7 +109,7 @@ class CardSort {
     addSoldItem(card) {
 
         let button = card.querySelector('.button');
-        
+
         button.classList.add('button_black');
         button.value = "Продан";
     }
@@ -144,26 +144,36 @@ class CardSort {
     }
 
     elemForSort() {
-        let priceArrow = document.querySelector('.dropmenu_price');
+        let dropMenus = document.querySelectorAll('.dropmenu');
 
-        priceArrow.addEventListener('click', () => {
-            this.sortingPriceMaxToLow()
+        dropMenus.forEach(dropMenu => {
+
+            dropMenu.addEventListener('click', (e) => {
+
+                if (dropMenu.matches('[data-item="price"]')) {
+
+                    this.sortingPriceMaxToLow()
+                } else if (dropMenu.matches('[data-item="age"]')) {
+
+                        this.sortingAgeLowToMax()
+                    }
+            })
         })
-    }
-
-    sortingPriceLowToMax() { //сортировка массива по возрастанию
-        this.obj.sort(function (a, b) {
-            return a.price - b.price;
-        })
-        this.delDiscountAndSold();
-        this.delHeart();
-        this.addText();
-
     }
 
     sortingPriceMaxToLow() { //сортировка массива по убыванию
         this.obj.sort(function (a, b) {
+
             return b.price - a.price;
+        })
+        this.delDiscountAndSold();
+        this.delHeart();
+        this.addText();
+    }
+    sortingAgeLowToMax() { //сортировка массива по возрастанию
+        this.obj.sort(function (a, b) {
+
+            return a.age - b.age;
         })
         this.delDiscountAndSold();
         this.delHeart();
@@ -171,6 +181,7 @@ class CardSort {
     }
 
     numberWithSpaces(x) {
+        
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 };
