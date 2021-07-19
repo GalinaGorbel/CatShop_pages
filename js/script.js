@@ -198,6 +198,14 @@ window.addEventListener('scroll', () => {
 scrollUp.addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
 });
+const button = document.querySelector('.burger-menu__btn');
+const menuBurger = document.querySelector('#burger');
+
+button.addEventListener('click', function() {
+    menuBurger.classList.toggle('burger-menu__box')
+})
+
+;
 
 const obj = [{
     title: 'Кот полосатый',
